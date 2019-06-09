@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Original - Elegant Blog Template</title>
+    <title>Group 8 Blog</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div class="coming-soon-area bg-img background-overlay" style="background-image: url(img/bg-img/b9.jpg);">
+    <div class="coming-soon-area bg-img background-overlay" style="background-image: url(img/3.jpg);">
         <!-- ##### Header Area Start ##### -->
         <header class="header-area">
 
@@ -40,23 +40,16 @@
                             <div class="breaking-news-area">
                                 <div id="breakingNewsTicker" class="ticker">
                                     <ul>
-                                        <li><a href="#">Hello HANU</a></li>
-                                        <li><a href="#">Hello FIT</a></li>
-                                        <li><a href="#">Hello HOA</a></li>
-                                        <li><a href="#">Hello CHI</a></li>
-                                        <li><a href="#">Hello KHANH</a></li>
+                                        <li><a href="#">Hello World!</a></li>
+									<li><a href="#">Hello HANU!</a></li>
+									<li><a href="#">Hello hci!</a></li>
+									<li><a href="#">Hello camnh!</a></li>
+									<li><a href="#">Hello 2c!</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- Top Social Area -->
-                        <div class="col-12 col-sm-4">
-                            <div class="top-social-area">
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
+                     
                     </div>
                 </div>
             </div>
@@ -66,7 +59,7 @@
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
-                            <a href="index.html" class="original-logo"><img src="img/core-img/logo2.png" alt=""></a>
+                            <a href="login.html" class="tech-logo"><img src="img/core-img/tech.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -86,7 +79,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p>Login now</p>
+                            <p>Login now to manage the blog</p>
 							<br></br>
                         </div>
                         
@@ -103,12 +96,13 @@
                     <!-- Contact Form Area -->
                     <div class="col-12 col-md-10 col-lg-9">
                         <div class="contact-form">
+                            <h5>Login by admin account</h5>
                             <!-- Contact Form -->
-                            <form action="#" method="post" id="login-form" >
+                            <form action="#" method="post" id="login-form">
                                 <div class="row">
                                     <div class="col-12 ">
                                         <div class="group">
-                                            <input type="text" name="name" id="name" required>
+                                            <input type="text" name="name" id="name" value="admin" required>
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
                                             <label>Name</label>
@@ -117,7 +111,7 @@
                                    
                                     <div class="col-12">
                                         <div class="group">
-                                            <input type="password" name="password" id="password" required>
+                                            <input type="password" name="password" id="password" value="admin" required>
                                             <span class="highlight"></span>
                                             <span class="bar"></span>
                                             <label>Password</label>
@@ -127,8 +121,10 @@
                                     <div class="col-12">
                                         <button type="submit" class="btn original-btn">Login</button>
                                     </div>
+
                                 </div>
                             </form>
+
                         </div>
                     </div>
 
@@ -167,12 +163,8 @@
                                 <!-- Nav Start -->
                                 <div class="classynav">
                                     <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Lifestyle</a></li>
-                                        <li><a href="#">travel</a></li>
-                                        <li><a href="#">Music</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                     
+                                       
                                     </ul>
                                 </div>
                                 <!-- Nav End -->
@@ -181,11 +173,7 @@
                     </div>
                     
                     <!-- Footer Social Area -->
-                    <div class="footer-social-area mt-30">
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </div>
+                  
                 </div>
             </div>
         </div>
@@ -207,21 +195,33 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+	
     <script>
-                         if (sessionStorage.getItem('user')) {
-                window.location.href = 'index.html';
-            }
-
+        $(document).ready(function () {
+           
             $('#login-form').on('submit', function () {
                 // Goi API
                 // onSucess:
                 sessionStorage.setItem('user', $('#name').val());
-                
-            });
-                   
+				  sessionStorage.setItem('pass', $('#password').val());
+                // onError:
+                // access denied cais gi day
+            
+			 if (sessionStorage.getItem('user')=='admin'&&sessionStorage.getItem('pass')=='admin') {
+				   alert("Login Sucess");
+					
+			
+            }else{
+				alert("Wrong username or password");
+			}
+			});
+			if (sessionStorage.getItem('user')=='admin'&&sessionStorage.getItem('pass')=='admin') {
+				 
+					window.location.href = 'index.html';}
+        });
 
-           
-            </script>
+    </script>
+
 </body>
 
 </html>
